@@ -1,4 +1,5 @@
 from modelo.avaliacao import Avalicao
+from modelo.cardapio.item_cardapio import ItemCardapio
 
 class Restaurante:
     restaurantes=[]
@@ -57,16 +58,23 @@ class Restaurante:
         media = round(soma_das_notas / quantidade_de_notas, 1)
         return media
     
+    '''
     def acionar_bebida_no_cardapio(self,bebida):
         self._cardapio.append(bebida)
     
     def acionar_prato_no_cardapio(self,prato):
         self._cardapio.append(prato)
+    '''
+    
+    def adicionar_cardapio(self, item):
+        if isinstance(item, ItemCardapio):
+            self._cardapio.append(item)
     
     def listar_cardapio(self):
         for cardapio in  self._cardapio:
             print(f'{cardapio._nome}')
-                              
+
+
 
 
 
