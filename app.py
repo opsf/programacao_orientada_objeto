@@ -1,14 +1,19 @@
 from modelo.restaurante import Restaurante
+from modelo.cardapio.bebida import Bebida
+from modelo.cardapio.prato import Prato
 
 restarante_comedere = Restaurante('Comedere', 'Goumert')
-restaurante_pizza = Restaurante('Pizza', 'Italiana')
-restarante_comedere.receber_avaliacao('Joao', 10)
-restarante_comedere.receber_avaliacao('Bela',4)
-restarante_comedere.receber_avaliacao('Clara',8)
+bebida_boa = Bebida('Leite', 5.00, 'grande')
+prato_dia = Prato('Pastel', 4.00, 'melhor da cidade')
+restarante_comedere.acionar_bebida_no_cardapio(bebida_boa)
+restarante_comedere.acionar_prato_no_cardapio(prato_dia)
+restarante_comedere.listar_cardapio()
+
 
 
 def main():        
-    Restaurante.lista_restaurantes()
+    print(bebida_boa)
+    print(prato_dia)
 
 if __name__ == '__main__':
     main()
