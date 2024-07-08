@@ -15,7 +15,7 @@ class Restaurante:
     @classmethod
     def lista_restaurantes(cls):        
         for restaurante in cls.restaurantes:
-            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.ativo}')
+            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.media_avaliacao} | {restaurante.ativo}')
 
     @property
     def ativo(self):
@@ -28,6 +28,35 @@ class Restaurante:
         avaliacao = Avalicao(cliente, nota)
         self._avaliacao.append(avaliacao)
     
+    """
+    @property
+    def media_avaliacao(self):
+        soma = 0
+        quantidade = 0        
+        for nota in self._avaliacao:
+            soma = nota._nota + soma
+            quantidade +=1
+        media = round(soma/quantidade,1)
+        return media
+              
+    @property
+    def media_avaliacao(self):
+        soma = sum(avaliacao._nota for avaliacao in self._avaliacao)
+        quantidade = len(self._avaliacao)
+        media = round(soma/quantidade,1)
+        return media
+    """
+    
+    @property
+    def media_avaliacao(self):
+        if not self._avaliacao:
+            return 0
+        soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
+        quantidade_de_notas = len(self._avaliacao)
+        media = round(soma_das_notas / quantidade_de_notas, 1)
+        return media
+
+
 
 
 

@@ -6,6 +6,7 @@ restarante_comedere.receber_avaliacao('Joao', 10)
 restarante_comedere.receber_avaliacao('Bela',4)
 restarante_comedere.receber_avaliacao('Clara',8)
 
+
 def main():        
     Restaurante.lista_restaurantes()
 
