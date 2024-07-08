@@ -1,20 +1,36 @@
+from modelo.avaliacao import Avalicao
+
 class Restaurante:
     restaurantes=[]
     def __init__(self, nome, categoria):
-        self.nome = nome
-        self.categoria = categoria
-        self.ativo = False
+        self._nome = nome.title()
+        self._categoria = categoria.upper()
+        self._ativo = False
+        self._avaliacao = []
         Restaurante.restaurantes.append(self)
     
     #def __str__(self):
        # return f'{self.nome} | {self.categoria}'
     
-    def lista_restaurantes():        
-        for restaurante in Restaurante.restaurantes:
-            print(f'{restaurante.nome} | {restaurante.categoria} | {restaurante.ativo}')
-         
-        
-restarante_comedere = Restaurante('Comedere', 'Goumert')
-restaurante_pizza = Restaurante('Pizza', 'Italiana')
+    @classmethod
+    def lista_restaurantes(cls):        
+        for restaurante in cls.restaurantes:
+            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.ativo}')
 
-Restaurante.lista_restaurantes()
+    @property
+    def ativo(self):
+        return  'ativado' if self._ativo else 'desativado'     
+    
+    def alterar_estado(self):
+        self._ativo= not self._ativo
+    
+    def receber_avaliacao(self, cliente, nota):
+        avaliacao = Avalicao(cliente, nota)
+        self._avaliacao.append(avaliacao)
+    
+
+
+
+
+
+

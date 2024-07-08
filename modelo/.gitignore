@@ -1,0 +1,30 @@
+# Arquivos de ambiente virtual (venv, virtualenv)
+venv/
+env/
+
+# Arquivos de bytecode Python
+*.pyc
+__pycache__/
+
+# Arquivos de configuração locais
+.env
+.idea/
+.vscode/
+
+# Arquivos de log e saída de testes
+*.log
+logs/
+test_output/
+coverage/
+
+# Arquivos de dependências (debate se deve ou não ser ignorado)
+# requirements.txt
+# Pipfile.lock
+
+# Arquivos de dados ou armazenamento local
+data/
+cache/
+
+# Arquivos de backup e temporários
+*.bak
+*.swp
