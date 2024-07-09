@@ -70,9 +70,25 @@ class Restaurante:
         if isinstance(item, ItemCardapio):
             self._cardapio.append(item)
     
+    
+    @property
     def listar_cardapio(self):
-        for cardapio in  self._cardapio:
-            print(f'{cardapio._nome}')
+        for  i, item in enumerate(self._cardapio, start=1):
+            if hasattr(item, 'tamanho'):
+                mensagem_bebida = f'{i} - Item: {item._nome}, Preço: {item._preco}, Tamanho: {item.tamanho}'                                                              
+                print(mensagem_bebida)
+            else:
+                mensagem_prato = f'{i} - Item: {item._nome}, Preço: {item._preco}, Descricao: {item.descricao}'                                                              
+                print(mensagem_prato)  
+            
+    
+   
+
+
+
+
+
+
 
 
 
